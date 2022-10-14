@@ -1,0 +1,77 @@
+
+
+#tam_tickets_main_cont {
+    box-sizing: border-box;
+    @include size(100%);
+    max-width: 1108px;
+    margin: 0px auto 60px;
+    padding: 0px 24px;
+    @media (max-width: 600px) {
+        padding: 0px 12px;
+    }
+    h1 {
+        color: $textColorOrange;
+        @include textAlign(center);
+        @include fontSize(82px, 96px);
+
+        @media (max-width: 1100px) {
+            display: none;
+        }
+    }
+    .sub_hl {
+        @include size(100%);
+        max-width: 1156px;
+        h3 {
+            font-size: 36px;
+            line-height: 42px;
+            color: #000000;
+            @media (max-width: 600px) {
+                font-size: 24px;
+                line-height: 29px;
+            }
+        }
+
+        p {
+            font-size: 24px;
+            line-height: 28px;
+            color: $textColorOrange;
+            @media (max-width: 600px) {
+                font-size: 12px;
+                line-height: 16px;
+            }
+        }
+    }
+    .mobile_br {
+        display: none;
+        @media (max-width: 600px) {
+            display: block;
+        }
+    }
+    .button_section {
+        @include size(100%);
+        margin: 40px auto 0px;
+        display: block;
+        text-align: center;
+
+        .payment_btn {
+            background: #FF473A;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            padding: 14px 60px;
+            text-decoration: none;
+            border: 2px solid #FF473A;
+            font-size: 15px;
+            line-height: 18px;
+            color: #fff;
+            transition: 0.3s ease-in-out;
+            &:hover {
+                background: transparent;
+                color: $textColorOrange;
+            }
+            @media (max-width: 600px) {
+                font-size: 12px;
+                line-height: 15px;
+            }
+        }
+    }
+
+}

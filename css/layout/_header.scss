@@ -1,0 +1,199 @@
+
+.tam_navbar_main {
+    @include flex(center, space-between);
+    @include flexRow(row);
+    @include size(100%);
+    @include position(relative);
+    background: #ff473a;
+    color: $textColorWhite;
+    padding: 1em;
+    margin-bottom: 20px;
+    top: 0;
+    left: 0;
+    @media (max-width: 1300px) {
+        background: #fff;
+    }
+    .tam_logo {
+        img {
+            max-width: 80px;
+            @media (max-width: 600px) {
+                max-width: 50px;
+            }
+        }
+    }
+
+    .menu {
+        @include flex(center, flex-end);
+        @include flexRow(row);
+        @include position(relative);
+        margin: 0;
+        padding: 0;
+        z-index: 10;
+        @media (max-width: 1300px) {
+            @include position(absolute);
+            @include flex(center, center);
+            @include flexRow(column);
+            @include size(100%);
+            top: 0;
+            margin-top: 92px;
+            left: 0;
+           
+        }
+
+       .tam_nav_item {
+            margin: 0 1rem;
+            @include size(auto);
+            @include position(relative);
+            overflow: hidden;
+
+            a {
+                color: $textColorWhite;
+                text-decoration: $textDecorationNone;
+                @include fontSize(21px, 28px)
+            }
+            a.hover_underline_animation::after {
+                @include position(absolute);
+                content: '';
+                @include size(100%);
+                transform: scaleX(0);
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: #ffffff;
+                transform-origin: bottom right;
+                transition: transform 0.25s ease-out;
+            }
+            a.hover_underline_animation {
+                @include position(relative);
+                display: inline-block;
+                color: $textColorWhite;
+            }
+            a.hover_underline_animation:hover::after {
+                transform: scaleX(1);
+                transform-origin: bottom left;
+              }
+
+            @media (max-width: 1300px) {
+                @include flex(center, center);
+                @include size(100%);
+                color: $textColorWhite;
+                margin: 0;
+                padding: 0.5em 0;
+                background-color: #ff473a;
+                
+            }  
+        }
+  }
+  .nav_item_inner.active a {
+    font-weight: 800;
+  }
+//   .active_nav {
+//     @include position(absolute);
+//     width: 0; 
+//     height: 0; 
+//     border-left: 25px solid transparent;
+//     border-right: 25px solid transparent;
+//     border-bottom: 25px solid #fff;
+//     bottom: -40px;
+//     right: -5px;
+//   }
+.nav_item_inner {
+    @include position(relative);
+}
+  .mobile_active_menu h2 {
+    @include fontSize(32px, 36px);
+    display: none;
+    color: $textColorOrange;
+    margin-left: -40px;
+    @media (max-width: 1300px) {
+        @include flex(center, center)
+    }
+    @media (max-width: 600px) {
+      @include fontSize(18px, 22px);
+    }
+  }
+
+  .menu-button-container {
+    display: none;
+    height: 100%;
+    width: 30px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 1300px) {
+        @include flex(center, space-between);
+    }
+  }
+  #menu-toggle {
+    display: none;
+  }
+  
+  .menu-button,
+  .menu-button::before,
+  .menu-button::after {
+    @include position(absolute);
+    @include size(30px);
+    display: block;
+    background-color: #000;
+    height: 4px;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    @media (max-width: 600px) {
+        height: 3px;
+    }
+  }
+  
+  .menu-button::before {
+    content: '';
+    margin-top: -8px;
+  }
+  
+  .menu-button::after {
+    content: '';
+    margin-top: 8px;
+  }
+  
+  #menu-toggle:checked + .menu-button-container .menu-button::before {
+    margin-top: 0px;
+    transform: rotate(405deg);
+  }
+  
+  #menu-toggle:checked + .menu-button-container .menu-button {
+    background: rgba(255, 255, 255, 0);
+  }
+  
+  #menu-toggle:checked + .menu-button-container .menu-button::after {
+    margin-top: 0px;
+    transform: rotate(-405deg);
+  }
+}
+
+  
+  @media (max-width: 1300px) {
+      #menu-toggle ~ .menu .tam_nav_item {
+        height: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      #menu-toggle:checked ~ .menu .tam_nav_item {
+        border: 1px solid #fff;
+        height: 3.5em;
+        padding: 0.5em;
+        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .menu > .tam_nav_item {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0.5em 0;
+        @include size(100%);
+        color: white;
+        background-color: #222;
+      }
+      .menu > .tam_nav_item:not(:last-child) {
+        border-bottom: 1px solid #444;
+      }
+} 

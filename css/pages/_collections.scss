@@ -1,0 +1,242 @@
+
+#tam_collections_lp *{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#tam_collections_lp{
+	width:100%;
+	margin:0 auto;
+	overflow:hidden;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: $fontFamily;
+	position:relative;
+
+    #tam_collections_items {
+      h1 {
+          color: $textColorOrange;
+          @include textAlign(center);
+          @include fontSize(82px, 96px);
+
+          @media (max-width: 1300px) {
+              display: none;
+          }
+      }
+      .tam_collection_flex_container {
+          @include flex(center, space-between);
+          @include flexRow(column);
+          max-width: 1568px;
+          margin: 0px auto;
+          padding: 0px 3px;
+          .row {
+              @include flex(flex-start, center);
+              @include flexRow(row);
+              @include size(100%);
+              flex-wrap: wrap;
+              @media (max-width: 600px) {
+                  flex-wrap: wrap;
+              }
+          }
+          .tam_collection_outer_cont {
+              @include flex(flex-start, center);
+              @include size(33.333%);
+              padding: 24px 12px;
+              @media (max-width: 900px) {
+                  width: 50%;
+                  padding: 12px 9px;
+              }
+
+              .tam_collection_flex_item {
+                  @include flex(flex-start, center);
+                  @include flexRow(column);
+                  @include size(100%);
+                  cursor: pointer;
+      
+                  h2 {
+                      color: $textColorOrange;
+                      text-transform: $textTransformUpp;
+                      @media (max-width: 600px) {
+                          font-size: 12px;
+                          line-height: 15px;
+                      }
+                  }
+      
+            img {
+                @include size(100%);
+                // max-width: 460px;
+                transition: transform .2s;
+                &:hover {
+                    transform: scale(1.02);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+    #tam_advanced_search_containter  {
+        padding-bottom: 60px;
+        padding-top: 30px;
+        
+        .tam_inner_lap {
+          @include position(relative);
+          @include size(100%);
+          max-width: 1568px;
+          margin: 0px auto;
+        }
+        .box{
+          .mutass_tobbet_btn{
+          @include size(100%);
+          margin-top: -80px;
+          @include position(absolute);
+          bottom: -50px;
+          padding: 24px;
+          opacity: 1;
+          cursor: pointer;
+          @include flex(center, flex-start);
+          text-decoration: underline;
+          color: $textColorOrange;
+          z-index: 6;
+          transition: 0.6s;
+
+          .mutass_tobbet_btn_text {
+            opacity: 1 !important;
+            z-index: 6;
+          }
+    
+        }
+        .mutass_tobbet_btn.opened {
+          bottom: -75px !important;
+        }
+
+    .box_content {
+      display: none;
+
+        .checkbox_form {
+          @include flex(center, center);
+          @include flexRow(row);
+          @include size(100%);
+          max-width: 1568px;
+          margin: 0px auto;
+          padding: 0px 24px;
+          @media (max-width: 400px) {
+              flex-direction: column;
+          }
+          .checkbox_column {
+              @include flex(flex-start, center);
+              @include flexRow(column);
+              width: 50%;
+              padding: 0px 10px;
+              @media (max-width: 600px) {
+                  @include size(100%);
+              }
+
+              .form-checkbox{
+                @include position(relative);
+                display: block;
+                margin: 0 0 15px;
+
+                .checkbox{
+                  @include position(absolute);
+                  opacity: 0;
+                  
+                  & + label{
+                    display: inline-block;
+                    @include position(relative);
+                    cursor: pointer;
+                    line-height: $checkbox-size;
+                    padding-left: $checkbox-size + 10;
+                    font-size: $checkbox-size - 2;
+                    color: #666; // Label colour
+                    @media (max-width: 600px) {
+                    font-size: 14px;
+                    }
+                    
+                    &:before{
+                      @include position(absolute);
+                      display: block;
+                      left: 0;
+                      top: 0;
+                      content: "";
+                      background: transparent;
+                      width: $checkbox-size;
+                      height: $checkbox-size;
+                      
+                      box-shadow: inset 0 0 0 1px $checkbox-border;
+                      border-radius: 4px;
+                      transition: 200ms ease-in-out all;
+                    }
+                    
+                    &:after{
+                      @include position(absolute);
+                      display: block;
+                      top: 5px;
+                      left: 8px;
+                      content: "";
+                      width: 3px;
+                      height: 7px;
+                      border-right: 1px solid transparent;
+                      border-bottom: 1px solid transparent;
+                      transform: rotate(45deg);
+                      
+                      transition: 200ms ease-in-out all;
+                    }
+                  }
+                  
+                  & + label:hover{
+                    color: #333;
+                  }
+                  
+                  & + label:focus{
+                    outline: none;
+                  }
+                  
+                  &:checked{
+                    & + label{
+                      &:before{
+                        background: $checkbox-selected;
+                        box-shadow: none;
+                      }
+                      &:after{
+                        border-color: white;
+                      }
+                    }
+                  }
+                  
+                  // Disabled
+                  &:disabled{
+                    & + label{
+                      &:before{
+                        background: #f2f2f2;
+                        box-shadow: none;
+                      }
+                      &:after{
+                        border-color: transparent;
+                      }
+                    }
+                  }
+                  
+                  // Disabled Checked
+                  &:checked:disabled{
+                    & + label{
+                      &:before{
+                        background: #f2f2f2;
+                        box-shadow: none;
+                      }
+                      &:after{
+                        border-color: #cecece;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }

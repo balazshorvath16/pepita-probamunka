@@ -1,0 +1,351 @@
+@mixin flex($align-items, $justify-content) {
+  display: flex;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+@mixin flexRow($direction) {
+  flex-direction: $direction;
+}
+@mixin flexWrap() {
+  flex-wrap: wrap;
+}
+@mixin size($width) {
+  width: $width;
+}
+@mixin textAlign($textalign) {
+  text-align: $textalign;
+}
+@mixin fontSize($fontSize, $line-height) {
+  font-size: $fontSize;
+  line-height: $line-height;
+}
+@mixin position($position) {
+  position: $position;
+}
+
+
+$textColorWhite: #ffffff;
+$textColorOrange: #FF473A;
+$fontSize: 24px;
+$fontFamily: 'TeleNeoWeb';
+$textDecorationNone: none;
+$fontSize82: 82px;
+$textTransformUpp: uppercase;
+$checkbox-size: 20px;
+$checkbox-border: #cecece;
+$checkbox-selected: #FF473A;
+
+    #pricing_section {
+        box-sizing: border-box;
+        @include size(100%);
+        max-width: 1108px;
+        margin: 0px auto;
+
+
+        .tam_flex_cont {
+          @include flex(center, space-between);
+          @include flexRow(column);
+          
+            @include size(100%);
+            max-width: 1108px;
+            margin: 0px auto;
+
+            .tam_pricing_flex_cont {
+                @include size(100%);
+
+                .menu_date {
+                    display: none;
+
+                    .date_flex_item {
+                      @include flex(center, center);
+                      @include flexRow(row);
+                      @include size(100%);
+                      text-align: center;
+                      margin-top: -30px;
+                      margin-bottom: 50px;  
+                      @media (max-width: 600px) {
+                        margin-top: -15px;
+                      }
+                      
+                      div {
+                        width: 33.333%;
+                      }
+                     
+                  }
+  
+                  .date_flex_item.date_today {
+                      justify-content: flex-start;   
+                                     
+                  }
+                  .date_flex_item.date_tomorrow {
+                      justify-content: center;
+                      div h2 {
+                        font-size: 18px;
+                          line-height: 22px;
+                        @media (max-width: 600px) {
+                          font-size: 12px;
+                          line-height: 15px;
+                        }
+                      }
+                  }
+                  .date_flex_item.date_other {
+                      justify-content: flex-end;
+                  }
+                  @keyframes slide-down {
+                      0%   {top:-50px; left:0px;}
+                      100% {left:0px; top:0px;}
+                  }
+                    
+                }
+                .menu_date.show {
+                    @include position(relative);
+                    @include size(100%);
+                    @include flex(flex-start, center);
+                    @include flexRow(column);
+                    animation-name: slide-down;
+                    animation-duration: 0.5s;
+                    transition: 0.5s ease-out;
+                    .price_flex_item {
+                        @include flex(center, space-between);
+                        @include flexRow(row);
+                        @include size(100%);
+                        padding: 0px 24px;
+
+                        .tickets_number {
+                          form {
+                            margin: 0 auto;
+                            text-align: center;
+
+                            .value-button {
+                              display: inline-block;
+                              border: 2px solid #D4D4D4;
+                              margin: 0px;
+                              width: 40px;
+                              height: 40px;
+                              font-size: 40px;
+                              line-height: 40px;
+                              color: #D4D4D4;
+                              text-align: center;
+                              vertical-align: middle;
+                              -webkit-touch-callout: none;
+                              -webkit-user-select: none;
+                              -khtml-user-select: none;
+                              -moz-user-select: none;
+                              -ms-user-select: none;
+                              user-select: none;
+                      
+                              &:nth-of-type(1) {
+                                line-height: 32px;
+                              }
+                              &:nth-of-type(2) {
+                                line-height: 35px;
+                              }
+                            }
+                            .value-button#increase {
+                              padding: 2px 0;
+                            }
+                            
+                            .value-button:hover {
+                              cursor: pointer;
+                            }
+
+                            input.number {
+                              text-align: center;
+                              border: none;
+                              margin: 0px;
+                              width: 40px;
+                              height: 40px;
+                              font-size: 24px;
+                              font-weight: 600;
+                            }
+                            
+                            input[type=number]::-webkit-inner-spin-button,
+                            input[type=number]::-webkit-outer-spin-button {
+                                -webkit-appearance: none;
+                                margin: 0;
+                            }
+                          }
+                        }
+
+                        .age_selector {
+                          h2 {
+                            @media (max-width: 600px) {
+                              font-size: 18px;
+                              line-height: 22px;
+                            }
+                          }
+                          .age_selector_shl {
+                            font-size: 15px;
+                            line-height: 18px;
+                            color: #D4D4D4;
+                            @media (max-width: 600px) {
+                              font-size: 12px;
+                              line-height: 15px;
+                            }
+                           
+                          }
+                        }
+                    }
+
+                    .total_price_flex_cont {
+                      @include flex(flex-start, space-between);
+                      @include flexRow(row);
+                      @include size(100%);
+                      border-top: 2px solid #FF473A;
+                      margin-top: 60px;
+                      padding: 8px 24px 0px;
+  
+                      span {
+                        font-weight: 800;
+                        font-size: 24px;
+                        line-height: 28px;
+                    }
+                    .product-total-price {
+                      font-weight: 800;
+                      font-size: 24px;
+                      line-height: 28px;
+                    }
+                  }
+
+                }
+
+
+            }
+        }
+    }
+
+	#tam_pricing_nav {
+        padding: 0;
+        .tam_inner_flex_cont_left {
+            @include size(100%);
+            @include position(relative);
+            display: flex;
+            background-color: #fff;
+            z-index: 2;
+            max-width: 1108px;
+            padding: 0 5px 3px 5px;
+            align-items: flex-end;
+            margin: 0px auto;
+
+            .menu_left {
+                @include size(100%);
+                @include flex(center, center);
+                @include flexRow(column);
+                padding: 13px 40px;
+                cursor: pointer;
+                border-bottom: 2px solid #F4F5F2;
+                @media (max-width: 600px) {
+                    padding: 4px 0px;
+                }
+                &:hover {
+                    transition: 0.3s ease-out;
+                    cursor: pointer;
+                    border-bottom: 2px solid #ff473a48;
+                    transition: 0.3s ease in-out;
+                }
+
+                .menu_left_text h3 {
+					          padding-bottom: 3px;
+                    margin-bottom: 0px;
+                    color: #D4D4D4;
+				        }
+                .menu_left_text.active h3 {
+                    font-weight: 800;
+                    font-size: 24px;
+                    line-height: 28px;
+                    margin-top: -30px;
+                    color: #050505;
+                    @media (max-width: 600px) {
+                        font-size: 18px;
+                        line-height: 22px;
+                        
+                    }
+                }
+            }
+            .menu_left.active {
+                border-bottom: 3px solid #FF473A;
+                transition: 0.3s ease in-out;
+                font-weight: 900;
+            }
+        }
+    }
+
+      .month {
+        padding: 35px 25px;
+        @include size(100%);
+        background: #FF473A;
+        text-align: center;
+
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
+
+          li {
+            color: white;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+          }
+
+          .prev {
+            float: left;
+            padding-top: 10px;
+          }
+          
+          .next {
+            float: right;
+            padding-top: 10px;
+          }
+        }
+
+    }
+    .weekdays {
+      margin: 0;
+      padding: 10px 0;
+      @include size(100%);
+      background-color: #ddd;
+      li {
+        display: inline-block;
+        width: 13.6%;
+        color: #666;
+        text-align: center;
+      }
+    }
+    .days {
+      padding: 10px 0;
+      background: #eee;
+      margin: 0;
+      @include size(100%);
+
+      li {
+        list-style-type: none;
+        display: inline-block;
+        width: 13.6%;
+        text-align: center;
+        margin-bottom: 5px;
+        font-size:12px;
+        color: #777;
+        
+        .active {
+          padding: 5px;
+          background: #FF473A;
+          color: white !important;
+          @media screen and (max-width: 420px) {
+            padding: 2px;
+          }
+      }
+    }
+  }
+      
+      @media screen and (max-width:720px) {
+        .weekdays li, .days li {width: 13.1%;}
+      }
+      
+      @media screen and (max-width: 420px) {
+        .weekdays li, .days li {width: 12.5%;}
+      }
+      
+      @media screen and (max-width: 290px) {
+        .weekdays li, .days li {width: 12.2%;}
+      }

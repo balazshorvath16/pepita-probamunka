@@ -1,0 +1,66 @@
+.search_container {
+    margin: 0px auto;
+}
+
+input[type=text] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 32px;
+    @include size(100%);
+    max-width: 1568px;
+    border: 2px solid #FF473A;
+    margin: 0px 24px;
+    color: $textColorOrange;
+    font-size: 36px;
+    line-height: 40px;
+    @media (max-width: 900px) {
+      margin: 0px 9px;
+    }
+    @media (max-width: 600px) {
+      font-size: 18px;
+      line-height: 22px;
+      padding: 11px 10px;
+    }
+
+  }
+  input::placeholder {
+    color: $textColorOrange;
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: 500;
+    @media (max-width: 600px) {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+   .search_container button {
+    margin-top: 8px;
+    @include position(absolute);
+    background: transparent;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    right: 32px;
+    @media (max-width: 600px) {
+      margin-top: 4px;
+    }
+    img {
+      width: 40px;
+      height: 40px;
+      @media (max-width: 600px) {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @include position(relative);
+    @include size(100%);
+    max-width: 1568px;
+    margin: 0px auto;
+  }

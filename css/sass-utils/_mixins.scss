@@ -1,0 +1,24 @@
+@mixin flex($align-items, $justify-content) {
+    display: flex;
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+@mixin flexRow($direction) {
+    flex-direction: $direction;
+}
+@mixin flexWrap() {
+    flex-wrap: wrap;
+}
+@mixin size($width) {
+    width: $width;
+}
+@mixin textAlign($textalign) {
+    text-align: $textalign;
+}
+@mixin fontSize($fontSize, $line-height) {
+    font-size: $fontSize;
+    line-height: $line-height;
+}
+@mixin position($position) {
+    position: $position;
+}
